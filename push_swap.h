@@ -17,6 +17,7 @@ int         tmp_idx;
 int         index;
 int         stack_indx;
 int         mark_to_push;
+int         elmts_moves
 }t_nodes;
 
 void swap(t_nodes **stack, char *str);

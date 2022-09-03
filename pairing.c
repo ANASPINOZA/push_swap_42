@@ -95,3 +95,24 @@ void ft_sort(t_nodes *stack_a, t_nodes *stack_b, int index)
         tmp_b = tmp_b->next;
     }
 }
+
+void    moves_count(t_nodes *stack_a, t_nodes *stack_b)
+{
+    t_nodes *tmp_a;
+    t_nodes *tmp_b;
+    int     stack_size_a;
+    int     stack_size_b;
+
+    stack_size_a = size_of_stack(stack_a);
+    stack_size_b = size_of_stack(stack_b);
+    tmp_a = stack_a;
+    tmp_b = stack_b;
+
+    while (tmp_b =! NULL)
+    {
+        if (tmp_b->stack_indx >= (stack_size_b / 2))
+            tmp_b->elmts_moves = stack_size_a - tmp_a->stack_indx;
+        if (tmp_b->stack_indx < (stack_size_b / 2))
+            tmp_b->elmts_moves = tmp_b->stack_indx;
+    }
+}
