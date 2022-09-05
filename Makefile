@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/05 12:40:29 by aadnane           #+#    #+#              #
+#    Updated: 2022/09/05 12:40:30 by aadnane          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 FLAGS = -Wall -Werror -Wextra
 SRCS = push_swap.c lis.c instructions.c push_lis.c utils.c pairing.c \

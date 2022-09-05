@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
+/*   Updated: 2022/09/05 16:16:07 by aadnane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void printlist(t_nodes *head)
@@ -20,9 +32,10 @@ void push(t_nodes **head,int value, int index)
     new_node->data = value;
     new_node->sub = -1;
     new_node->length = 1;
-    new_node->tmp_idx = 0;
+    new_node->pair_idx = 0;
     new_node->index = index;
     new_node->mark_to_push = 1;
+    new_node->dis = 0;
     // new_node->next = NULL;
     new_node->next = *head;
     *head = new_node;
@@ -82,15 +95,7 @@ int main(int ac, char **av)
     t_nodes *lis_list;
     t_nodes *max_len;
     t_nodes *sorted;
-    // int poped;
-
-    // push(&stack_a,3);
-    // push(&stack_a,2);
-    // push(&stack_a,1);
-    // push(&stack_b,3);
-    // push(&stack_b,2);
-    // push(&stack_b,1);
-    // i shoulde make check stack function to check if elements are valide or not here,
+    
     check_elements(ac, av);
    insert_num(ac, av, &stack_a);
    printf("stack size %d\n", size_of_stack(stack_a));
@@ -106,32 +111,9 @@ int main(int ac, char **av)
    printf("stack b\n");
     printlist(stack_b);
     ft_pair(&stack_a, &stack_b);
+    calculate_distance(stack_a);
+    calculate_distance(stack_b);
+    join_distance(stack_a, stack_b);
 
-    // print_len_lis(max_len);
-    // printf("length : %d", max_len->length);
-    /*fourth instruction*/
-    // rotate_up(&stack_a);
-    // rotate_up(&stack_a);
-    // printlist(stack_a);
-    /*third instructions*/
-    // rotate_down(&stack_a);
-    // printlist(list);
-
-    /*secend intstructions*/
-    // printlist(stack_b);
-    // pop_n_push(&stack_a, &stack_b);
-    // printf("-----------------\n");
-    // printlist(stack_b);
-    // printf("-----------------\n");
-    // printlist(stack_a);
-
-    // sa(&head);
-    //    while ((poped = pop(&head)) != -555555555)
-    // {
-    //     printf("poped element : %d\n", poped);
-    // }
-    // printf("pushed element : %d\n", result);
-
-    
     return 0;
 }

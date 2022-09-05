@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
+/*   Updated: 2022/09/05 13:38:27 by aadnane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int ft_atoi(char *str)
@@ -59,7 +71,8 @@ void indexation_elems(t_nodes *stack)
     tmp = stack;
     while(tmp != NULL)
     {
-        tmp->stack_indx = i;
+        tmp->elmts_indx = i;
+        tmp->pair_idx = -1;
         tmp = tmp->next;
         i++;
     }

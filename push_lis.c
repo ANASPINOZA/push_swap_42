@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_lis.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/05 12:40:47 by aadnane           #+#    #+#             */
+/*   Updated: 2022/09/05 13:25:35 by aadnane          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void push_non_lis(t_nodes **stack_a, t_nodes **stack_b)
@@ -26,9 +38,9 @@ int size_of_stack(t_nodes *stack)
 
     stack_size = 0;
     tmp = stack;
-
     while (tmp != NULL)
     {
+        tmp->elmts_indx = stack_size;
         stack_size++;
         tmp = tmp->next;
     }
