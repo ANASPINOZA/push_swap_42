@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils2.c                                           :+:      :+:    :+:   */
+/*   sorting_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/05 12:41:34 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 17:15:22 by aadnane          ###   ########.fr       */
+/*   Created: 2022/09/06 17:16:14 by aadnane           #+#    #+#             */
+/*   Updated: 2022/09/06 17:17:17 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strlen(char *str)
+t_nodes *find_elem(t_nodes *stack, int index)
 {
-    int i;
+    t_nodes *tmp;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+    tmp = stack;
+    while (tmp != NULL)
+    {
+        if (tmp->elmts_indx == index)
+            return (tmp);
+        tmp = tmp->next;
+    }
+    return NULL;
 }
 
-int ft_strcmp(char *str1, char *str2)
-{
-    int i;
-
-    i = 0;
-    while (str1[i] && str2[i] && (str1[i] == str2[i]))
-        i++;
-    return (str1[i] - str2[i]);
-}
-
-void ft_error()
-{
-    write(1, "Error\n", 6);
-    exit(1);
-}

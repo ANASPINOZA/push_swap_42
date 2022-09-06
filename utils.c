@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 10:49:11 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:18:36 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,9 @@ int duplicate_count(char *av)
         j = i + 1;
     }
     return (count);
+}
+
+void    print_instruction(char *str)
+{
+    write(1, str, ft_strlen(str));
 }

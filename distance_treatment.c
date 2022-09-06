@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/05 19:38:20 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:41:14 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,16 @@ void join_distance(t_nodes *stack_a, t_nodes *stack_b)
         {
             if (tmp_b->pair_idx == tmp_a->elmts_indx)
             {
-                if ((tmp_b->elmts_indx >= b_mid && tmp_a->elmts_indx >= a_mid) || (tmp_b->elmts_indx < b_mid && tmp_a->elmts_indx < a_mid))
+                if (tmp_b->elmts_indx >= b_mid && tmp_a->elmts_indx >= a_mid)
+                {
+                    tmp_b->flag = 7;
                     tmp_b->final_dis = ft_max(tmp_a->dis, tmp_b->dis);
+                }
+                else if ((tmp_b->elmts_indx < b_mid && tmp_a->elmts_indx < a_mid))
+                {
+                    tmp_b->flag = 9;
+                    tmp_b->final_dis = ft_max(tmp_a->dis, tmp_b->dis);
+                }
                 else
                     tmp_b->final_dis = tmp_b->dis + tmp_a->dis;
             }

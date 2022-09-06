@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/05 16:30:06 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 17:12:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,14 @@ int         elmts_indx;
 int         mark_to_push;
 int         dis;
 int         final_dis;
+int         flag;
 }t_nodes;
 
-void    swap(t_nodes **stack, char *str);
+void    swap(t_nodes **stack, char *type);
 void    push(t_nodes **head,int value, int index);
-void    pop_n_push(t_nodes **stack_sender, t_nodes **stack_receiver);
-void    rotate_down(t_nodes **stack);
-void    rotate_up(t_nodes **stack);
+void    pop_n_push(t_nodes **stack_sender, t_nodes **stack_receiver, char *type);
+void    rotate(t_nodes **stack, char *type);
+void    reverse_rotate(t_nodes **stack, char *type);
 void    insert_num(int ac, char **av, t_nodes **stack);
 t_nodes *extract_lis(t_nodes *stack);
 t_nodes *find_max_len(t_nodes *stack);
@@ -60,5 +61,7 @@ int     ft_max(int n1, int n2);
 void    calculate_distance(t_nodes *stack);
 void    join_distance(t_nodes *stack_a, t_nodes *stack_b);
 t_nodes *get_less_dis(t_nodes *stack);
+void    print_instruction(char *str);
+t_nodes *find_elem(t_nodes *stack, int index);
 
 #endif

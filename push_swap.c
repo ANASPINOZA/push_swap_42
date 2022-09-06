@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 12:45:51 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:37:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void push(t_nodes **head,int value, int index)
     new_node->index = index;
     new_node->mark_to_push = 1;
     new_node->dis = 0;
+    new_node->flag = 0;
     // new_node->next = NULL;
     new_node->next = *head;
     *head = new_node;

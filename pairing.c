@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:36 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 10:56:56 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 15:14:33 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
 //             {
 //                 if (tmp_a->elmts_indx == tmp_b->pair_idx)
 //                     pop_n_push(&stack_b, &stack_a);
-//                 rotate_down(&stack_a);
+//                 rotate(&stack_a);
 //                 // tmp_a = tmp_a->next;
 //                 tmp_a = stack_a; 
 //             }
@@ -100,7 +100,7 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
 //             instr_above = tmp_b->elmts_indx;
 //             while (instr_above >= 0)
 //             {
-//                 rotate_down(&stack_b);
+//                 rotate(&stack_b);
 //                 instr_above--;
 //             }
 //         }
