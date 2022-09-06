@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/05 16:16:07 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/06 12:45:51 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void push(t_nodes **head,int value, int index)
     new_node->data = value;
     new_node->sub = -1;
     new_node->length = 1;
-    new_node->pair_idx = 0;
+    new_node->pair_idx = -1;
     new_node->index = index;
     new_node->mark_to_push = 1;
     new_node->dis = 0;
@@ -95,25 +95,30 @@ int main(int ac, char **av)
     t_nodes *lis_list;
     t_nodes *max_len;
     t_nodes *sorted;
+    t_nodes *best;
     
     check_elements(ac, av);
-   insert_num(ac, av, &stack_a);
-   printf("stack size %d\n", size_of_stack(stack_a));
+    insert_num(ac, av, &stack_a);
+    printf("stack size %d\n", size_of_stack(stack_a));
     lis_list = extract_lis(stack_a);
     max_len = find_max_len(lis_list);
     printlis(lis_list);
-   sorted =  mark_elements(lis_list, max_len);
-   printf("fghjdqio\n");
-   printlis(sorted);
-   push_non_lis(&stack_a, &stack_b);
-   printf("stack a\n");
+    sorted =  mark_elements(lis_list, max_len);
+    printf("fghjdqio\n");
+    printlis(sorted);
+    push_non_lis(&stack_a, &stack_b);
+    ft_sort(&stack_a, &stack_b);
+
+   
+    printf("stack a\n");
     printlist(stack_a);
-   printf("stack b\n");
+    printf("stack b\n");
     printlist(stack_b);
     ft_pair(&stack_a, &stack_b);
     calculate_distance(stack_a);
     calculate_distance(stack_b);
     join_distance(stack_a, stack_b);
+    best = get_less_dis(stack_a);
 
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/05 16:29:27 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/05 19:38:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,3 +74,4 @@ void join_distance(t_nodes *stack_a, t_nodes *stack_b)
         tmp_b = tmp_b->next;
     }
 }
+
