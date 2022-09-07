@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:37:20 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 17:24:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,11 @@ void printlis(t_nodes *head)
     tmp = head;
     while (tmp)
     {
-        printf("element : [%d] ,index : [%d], length : [%d], sub : [%d] , marked : %d \n", tmp->data, tmp->index, tmp->length, tmp->sub, tmp->mark_to_push);
+        // printf("element : [%d] ,index : [%d], length : [%d], sub : [%d] , marked : %d \n", tmp->data, tmp->index, tmp->length, tmp->sub, tmp->mark_to_push);
+        printf("%d ", tmp->data);
         tmp = tmp->next;
     }
+    return ;
 }
 
 void print_len_lis(t_nodes *head)
@@ -96,7 +98,7 @@ int main(int ac, char **av)
     t_nodes *lis_list;
     t_nodes *max_len;
     t_nodes *sorted;
-    t_nodes *best;
+    // t_nodes *best;
     
     check_elements(ac, av);
     insert_num(ac, av, &stack_a);
@@ -105,21 +107,20 @@ int main(int ac, char **av)
     max_len = find_max_len(lis_list);
     printlis(lis_list);
     sorted =  mark_elements(lis_list, max_len);
-    printf("fghjdqio\n");
     printlis(sorted);
     push_non_lis(&stack_a, &stack_b);
     ft_sort(&stack_a, &stack_b);
-
+    printlis(stack_a);
    
-    printf("stack a\n");
-    printlist(stack_a);
-    printf("stack b\n");
-    printlist(stack_b);
-    ft_pair(&stack_a, &stack_b);
-    calculate_distance(stack_a);
-    calculate_distance(stack_b);
-    join_distance(stack_a, stack_b);
-    best = get_less_dis(stack_a);
+    // printf("stack a\n");
+    // printlist(stack_a);
+    // printf("stack b\n");
+    // printlist(stack_b);
+    // ft_pair(&stack_a, &stack_b);
+    // calculate_distance(stack_a);
+    // calculate_distance(stack_b);
+    // join_distance(stack_a, stack_b);
+    // best = get_less_dis(stack_a);
 
     return 0;
 }

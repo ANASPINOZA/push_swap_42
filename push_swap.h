@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 17:12:43 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 16:49:13 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,6 @@ void    join_distance(t_nodes *stack_a, t_nodes *stack_b);
 t_nodes *get_less_dis(t_nodes *stack);
 void    print_instruction(char *str);
 t_nodes *find_elem(t_nodes *stack, int index);
+void ft_sort(t_nodes **stack_a, t_nodes **stack_b);
 
 #endif
