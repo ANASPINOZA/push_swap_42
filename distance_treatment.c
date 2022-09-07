@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:41:14 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 21:42:44 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,31 @@
 t_nodes *get_less_dis(t_nodes *stack)
 {
     t_nodes *ret;
+    t_nodes *tmp;
     int     less_dis;
 
     ret = stack;
+    tmp = stack;
     less_dis = stack->final_dis;
-    while (stack)
+    while (tmp)
     {
         if (less_dis < stack->final_dis)
+            ret = stack;
+        tmp = tmp->next;
+    }
+    return (ret);
+}
+
+t_nodes *get_min_elm(t_nodes *stack)
+{
+    t_nodes *ret;
+    int     min_elm;
+
+    ret = stack;
+    min_elm = stack->data;
+    while (stack)
+    {
+        if (min_elm < stack->data)
             ret = stack;
         stack = stack->next;
     }
@@ -34,7 +52,7 @@ void calculate_distance(t_nodes *stack)
     int     stack_size;
 
     stack_size = size_of_stack(stack);
-    // indexation_elems(stack);
+    indexation_elems(stack);
     tmp = stack;
     while (tmp != NULL)
     {

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:47 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:21:44 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 18:17:06 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void push_non_lis(t_nodes **stack_a, t_nodes **stack_b)
     {
         tmp = *stack_a;
         if (tmp->mark_to_push == 0)
-            rotate(stack_a, "ra");
+            rotate(stack_a, "ra\n");
         if (tmp->mark_to_push == 1)
-            pop_n_push(stack_a, stack_b, "pb");
+            pop_n_push(stack_a, stack_b, "pb\n");
         stack_size--;
     }
 }

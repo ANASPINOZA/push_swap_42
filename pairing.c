@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:36 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:14:33 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 19:47:47 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
     sec_tmp = tmp->next;
     trd_tmp = *stack_b;
     indexation_elems(*stack_a);
+    indexation_elems(*stack_b);
     while (trd_tmp != NULL)
     {
         tmp = *stack_a;

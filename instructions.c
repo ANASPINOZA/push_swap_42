@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:12 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:20:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/07 18:10:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void pop_n_push(t_nodes **stack_sender, t_nodes **stack_receiver, char *type)
     free(tmp);
 }
 
+// Puts the first element in the tail of the stack
 void rotate(t_nodes **stack, char *type)
 {
     t_nodes *tmp;
@@ -51,6 +52,7 @@ void rotate(t_nodes **stack, char *type)
     tmp->next = NULL;
 }
 
+// Puts the last element in the head of the stack
 void reverse_rotate(t_nodes **stack, char *type)
 {
     t_nodes *tmp;
