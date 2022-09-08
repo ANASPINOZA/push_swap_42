@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:36 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/07 19:47:47 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/08 15:36:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,34 @@
 
 t_nodes *get_min_element(t_nodes *stack)
 {
-    int min;
     t_nodes *ret;
-
+    t_nodes *tmp;
+    int min;
+    
+    tmp = stack;
     ret = stack;
-    min = stack->data;
-    while (stack)
+    min = tmp->data;
+    while (tmp)
     {
-        min = stack->data;
+        min = tmp->data;
         if (min < ret->data)
-            ret = stack;
-        stack = stack->next;
+            ret = tmp;
+        tmp = tmp->next;
     }
     return (ret);
+}
+
+void    reinit_pair_index(t_nodes *stack)
+{
+    t_nodes *tmp;
+
+    tmp = stack;
+
+    while (tmp != NULL)
+    {
+        tmp->pair_idx = -1;
+        tmp = tmp->next;
+    }
 }
 
 void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
@@ -35,24 +50,28 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
     t_nodes *sec_tmp;
     t_nodes *trd_tmp;
     
-    tmp = *stack_a;
-    sec_tmp = tmp->next;
     trd_tmp = *stack_b;
     indexation_elems(*stack_a);
-    indexation_elems(*stack_b);
+    reinit_pair_index(*stack_b);
     while (trd_tmp != NULL)
     {
         tmp = *stack_a;
-        sec_tmp = tmp->next;
+        sec_tmp = (*stack_a)->next;
         while (sec_tmp != NULL)
         {
+            // printf("Stack A 1:%d Index: %d\n", tmp->data, tmp->elmts_indx);
+            // printf("Stack A 2:%d Index: %d\n", sec_tmp->data, sec_tmp->elmts_indx);
+            // printf("Stack B 1:%d Index: %d\n", trd_tmp->data, trd_tmp->elmts_indx);
+            // printf("\n");
             if (tmp->data < trd_tmp->data && trd_tmp->data < sec_tmp->data)
+            {
                trd_tmp->pair_idx = sec_tmp->elmts_indx;
+            }
             sec_tmp = sec_tmp->next;
             tmp = tmp->next;
         }
-        if (tmp->data < trd_tmp->data)
-             trd_tmp->pair_idx = (*stack_a)->elmts_indx;
+        if (tmp->data < trd_tmp->data && trd_tmp->pair_idx == -1)
+            trd_tmp->pair_idx = (*stack_a)->elmts_indx;
         if (trd_tmp->pair_idx == -1)
             trd_tmp->pair_idx = get_min_element(*stack_a)->elmts_indx;
         trd_tmp = trd_tmp->next;
