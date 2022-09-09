@@ -6,26 +6,26 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/08 15:39:46 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/09 16:38:13 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
  #include "push_swap.h"
 
-void	top_minimum_elm(t_nodes **stack)
+void	top_minimum_elm(t_nodes **stack_a)
 {
 	t_nodes *tmp;
 	int middle;
 
-	tmp = get_min_element(*stack);
-	middle = size_of_stack(*stack) / 2;
-	while ((*stack)->data != tmp->data)
+	tmp = get_min_element(*stack_a);
+	middle = size_of_stack(*stack_a) / 2;
+	while ((*stack_a)->data != tmp->data)
 	{
-		indexation_elems(*stack);
+		indexation_elems(*stack_a);
 		if (tmp->elmts_indx < middle)
-			rotate(stack, "ra\n");
+			rotate(stack_a, "ra\n");
 		else if (tmp->elmts_indx >= middle)
-			reverse_rotate(stack, "rra\n");
+			reverse_rotate(stack_a, "rra\n");
 	}		
 }
 
@@ -71,8 +71,8 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 		while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 			rotate(stack_a, "ra\n");
 		while ((*stack_b)->data != best->data)
-			rotate(stack_a, "rb\n");
-		pop_n_push(stack_b, stack_a, "pb\n");
+			rotate(stack_b, "rb\n");
+		pop_n_push(stack_b, stack_a, "pa\n");
 	}
 	top_minimum_elm(stack_a);
 	// printlis(*stack_a);
