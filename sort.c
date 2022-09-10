@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 11:38:35 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/10 19:50:23 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 		calculate_distance(*stack_b);
 		join_distance(*stack_a, *stack_b);
 		best = get_less_dis(*stack_b);
-		while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
-			rotate(stack_a, "ra\n");
-		while ((*stack_b)->data != best->data)
-			rotate(stack_b, "rb\n");
-		pop_n_push(stack_b, stack_a, "pa\n");
-	}
-	top_minimum_elm(stack_a);
+		// while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+		// 	rotate(stack_a, "ra\n");
+		// while ((*stack_b)->data != best->data)
+		// 	rotate(stack_b, "rb\n");
+		// pop_n_push(stack_b, stack_a, "pa\n");
+	// }
+	// top_minimum_elm(stack_a);
 	// printlis(*stack_a);
 	// printf("stack_b size :%d \n", size_of_stack(*stack_b));
 	// // printf("The best element: %d [%d]\n", best->elmts_indx, best->data);
@@ -91,9 +91,9 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 	// while (size_of_stack(*stack_b)) 
 	// {
 	// 	// while (1);
-	// 	if (best->flag == 9)
-	// 	{
-	// 		above_mid_rotation(stack_a, stack_b, best);
+		if (best->flag == 9)
+		{
+			above_mid_rotation(stack_a, stack_b, best);
 	// 	// //   while ((*stack_b)->data != best->data && \
 	// 	// //   (*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 	// 	// //   {
@@ -104,10 +104,10 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 	// 	// //   		rotate(stack_a, "ra");
 	// 	// //   while ((*stack_b)->data != best->data)
 	// 	// // 		rotate(stack_a, "rb");	
-	// 	} 
-	// 	else if (best->flag == 7)
-	// 	{
-	// 		below_mid_rotation(stack_a, stack_b, best);
+		} 
+		else if (best->flag == 7)
+		{
+			below_mid_rotation(stack_a, stack_b, best);
 	// 	// //   while ((*stack_b)->data != best->data && \
 	// 	// //   (*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 	// 	// //   {
@@ -118,41 +118,41 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 	// 	// //   		reverse_rotate(stack_a, "rra");
 	// 	// //   while ((*stack_b)->data != best->data)
 	// 	// // 		reverse_rotate(stack_a, "rrb");	
-// 		}
-// 		else
-// 		{
-// 			top_element(stack_b, best, 'b');
-// 			top_element(stack_a, find_elem(*stack_a, best->pair_idx), 'a');
-// 		}
-// 		pop_n_push(stack_b, stack_a, "pa\n");
-// 	}
-// 	top_minimum_elm(stack_a);
+		}
+		else
+		{
+			top_element(stack_b, best, 'b');
+			top_element(stack_a, find_elem(*stack_a, best->pair_idx), 'a');
+		}
+		pop_n_push(stack_b, stack_a, "pa\n");
+	}
+	top_minimum_elm(stack_a);
 // //    return (*stack_a);
 }
 
-// void top_element(t_nodes **stack, t_nodes *node, char type)
-// {
-//      int stack_middle;
+void top_element(t_nodes **stack, t_nodes *node, char type)
+{
+     int stack_middle;
 
-//      stack_middle = size_of_stack(*stack) / 2;
-//      if (node->elmts_indx < stack_middle)
-//      {
-//           while ((*stack)->data != node->data)
-//           {
-//                if (type == 'a')
-//                     rotate(stack, "ra\n");
-//                else
-//                     rotate(stack, "rb\n");
-//           }
-//      }
-//      else if (node->elmts_indx >= stack_middle)
-//      {
-//           while ((*stack)->data != node->data)
-//           {
-//                if (type == 'a')
-//                     reverse_rotate(stack, "rra\n");
-//                else
-//                     reverse_rotate(stack, "rrb\n");
-//           }
-//      }
-// }
+     stack_middle = size_of_stack(*stack) / 2;
+     if (node->elmts_indx < stack_middle)
+     {
+          while ((*stack)->data != node->data)
+          {
+               if (type == 'a')
+                    rotate(stack, "ra\n");
+               else
+                    rotate(stack, "rb\n");
+          }
+     }
+     else if (node->elmts_indx >= stack_middle)
+     {
+          while ((*stack)->data != node->data)
+          {
+               if (type == 'a')
+                    reverse_rotate(stack, "rra\n");
+               else
+                    reverse_rotate(stack, "rrb\n");
+          }
+     }
+}

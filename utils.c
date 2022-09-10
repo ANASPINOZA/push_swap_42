@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 11:44:37 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/10 22:06:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void insert_num(int ac, char **av, t_nodes **stack)
         j -= 1;
     }
     check_duplicate(*stack);
+    // already_sorted(*stack);
     // return (list);
 }
 
