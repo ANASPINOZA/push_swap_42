@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:36 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/09 16:12:01 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/09 19:28:42 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
             sec_tmp = sec_tmp->next;
             tmp = tmp->next;
         }
-        if (tmp->data < trd_tmp->data && trd_tmp->data < (*stack_a)->data && trd_tmp->pair_idx == -1)
+        if (tmp->data < trd_tmp->data && trd_tmp->data < (*stack_a)->data \
+            && trd_tmp->pair_idx == -1)
             trd_tmp->pair_idx = (*stack_a)->elmts_indx;
         if (trd_tmp->pair_idx == -1)
             trd_tmp->pair_idx = get_min_element(*stack_a)->elmts_indx;

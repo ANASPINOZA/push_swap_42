@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/09 16:38:13 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/10 11:38:35 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	top_minimum_elm(t_nodes **stack_a)
 	}		
 }
 
-void above_mid_rotation(t_nodes * *stack_a, t_nodes **stack_b, t_nodes *best)
+void above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
 	while ((*stack_b)->data != best->data && \
 		  (*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
@@ -40,7 +40,7 @@ void above_mid_rotation(t_nodes * *stack_a, t_nodes **stack_b, t_nodes *best)
 	while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 		rotate(stack_a, "ra\n");
 	while ((*stack_b)->data != best->data)
-		rotate(stack_a, "rb\n");
+		rotate(stack_b, "rb\n");
 }
 
 void below_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
@@ -54,7 +54,7 @@ void below_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 	while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 		reverse_rotate(stack_a, "rra\n");
 	while ((*stack_b)->data != best->data)
-		reverse_rotate(stack_a, "rrb\n");
+		reverse_rotate(stack_b, "rrb\n");
 }
 
 void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
@@ -118,15 +118,16 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 	// 	// //   		reverse_rotate(stack_a, "rra");
 	// 	// //   while ((*stack_b)->data != best->data)
 	// 	// // 		reverse_rotate(stack_a, "rrb");	
-	// 	}
-	// 	else
-	// 	{
-	// 		top_element(stack_b, best, 'b');
-	// 		top_element(stack_a, find_elem(*stack_a, best->pair_idx), 'a');
-	// 	}
-	// }
-	// top_minimum_elm(stack_a);
-//    return (*stack_a);
+// 		}
+// 		else
+// 		{
+// 			top_element(stack_b, best, 'b');
+// 			top_element(stack_a, find_elem(*stack_a, best->pair_idx), 'a');
+// 		}
+// 		pop_n_push(stack_b, stack_a, "pa\n");
+// 	}
+// 	top_minimum_elm(stack_a);
+// //    return (*stack_a);
 }
 
 // void top_element(t_nodes **stack, t_nodes *node, char type)

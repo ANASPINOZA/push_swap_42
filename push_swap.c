@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/09 14:05:15 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/10 11:44:47 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int main(int ac, char **av)
     push_non_lis(&stack_a, &stack_b);
     ft_sort(&stack_a, &stack_b);
     // printf("here\n");
-    printlis(stack_a);
+    // printlis(stack_a);
    
     // printf("stack a\n");
     // printlist(stack_a);

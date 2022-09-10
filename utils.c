@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/06 15:18:36 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/10 11:44:37 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void insert_num(int ac, char **av, t_nodes **stack)
     int j;
     // t_nodes *list;
 
-    i = 1;
+    i = ac - 1;
     j = ac - 2;
     // if (duplicate_count(av) != 0)
     //     printf("duplicated emlements\n");
-    while (av[i])
+    while (i > 0)
     {
         push(stack, ft_atoi(av[i]), j);
-        i += 1;
+        i -= 1;
         j -= 1;
     }
     check_duplicate(*stack);
