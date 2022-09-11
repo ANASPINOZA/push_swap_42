@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:36 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/09 19:28:42 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/11 13:16:44 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,8 @@ void ft_pair(t_nodes **stack_a, t_nodes **stack_b)
         sec_tmp = (*stack_a)->next;
         while (sec_tmp != NULL)
         {
-            // printf("Stack A 1:%d Index: %d\n", tmp->data, tmp->elmts_indx);
-            // printf("Stack A 2:%d Index: %d\n", sec_tmp->data, sec_tmp->elmts_indx);
-            // printf("Stack B 1:%d Index: %d\n", trd_tmp->data, trd_tmp->elmts_indx);
-            // printf("\n");
             if (tmp->data < trd_tmp->data && trd_tmp->data < sec_tmp->data)
-            {
                trd_tmp->pair_idx = sec_tmp->elmts_indx;
-            }
             sec_tmp = sec_tmp->next;
             tmp = tmp->next;
         }

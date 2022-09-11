@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 22:04:25 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/11 12:43:10 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    print_instruction(char *str);
 t_nodes *find_elem(t_nodes *stack, int index);
 void ft_sort(t_nodes **stack_a, t_nodes **stack_b);
 void top_element(t_nodes **stack, t_nodes *node, char type);
-t_nodes *get_min_elm(t_nodes *stack);
+// t_nodes *get_min_elm(t_nodes *stack);
 t_nodes *get_min_element(t_nodes *stack);
 // void	pr_elemts(t_nodes **stack_a, t_nodes **stack_b); // remove
 // void	pr(t_nodes **stack, t_nodes	*node); // remove

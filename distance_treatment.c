@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 19:45:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/11 19:14:53 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,31 +20,32 @@ t_nodes *get_less_dis(t_nodes *stack)
 
     ret = stack;
     tmp = stack;
-    less_dis = stack->final_dis;
+    less_dis = tmp->final_dis;
     while (tmp)
     {
-        if (less_dis < stack->final_dis)
-            ret = stack;
+        less_dis = tmp->final_dis; 
+        if (less_dis < ret->final_dis)
+            ret = tmp;
         tmp = tmp->next;
     }
     return (ret);
 }
 
-t_nodes *get_min_elm(t_nodes *stack)
-{
-    t_nodes *ret;
-    int     min_elm;
+// t_nodes *get_min_elm(t_nodes *stack)
+// {
+//     t_nodes *ret;
+//     int     min_elm;
 
-    ret = stack;
-    min_elm = stack->data;
-    while (stack)
-    {
-        if (min_elm < stack->data)
-            ret = stack;
-        stack = stack->next;
-    }
-    return (ret);
-}
+//     ret = stack;
+//     min_elm = stack->data;
+//     while (stack)
+//     {
+//         if (min_elm < stack->data)
+//             ret = stack;
+//         stack = stack->next;
+//     }
+//     return (ret);
+// }
 
 void calculate_distance(t_nodes *stack)
 {
@@ -68,13 +69,15 @@ void join_distance(t_nodes *stack_a, t_nodes *stack_b)
 {
     int     a_mid;
     int     b_mid;
-    t_nodes *tmp_a;
+    t_nodes *tmp_a; 
     t_nodes *tmp_b;
 
     tmp_b = stack_b;
     tmp_a = stack_a;
     a_mid = size_of_stack(stack_a) / 2;
     b_mid = size_of_stack(stack_b) / 2;
+    indexation_elems(stack_a);
+    indexation_elems(stack_b);
     while (tmp_b != NULL)
     {
         tmp_a = stack_a;

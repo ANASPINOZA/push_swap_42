@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 22:08:38 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/11 18:30:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void printlis(t_nodes *head)
     while (tmp)
     {
         // printf("element : [%d] ,index : [%d], length : [%d], sub : [%d] , marked : %d \n", tmp->data, tmp->index, tmp->length, tmp->sub, tmp->mark_to_push);
-        printf("[%d]: Index[%d] Pair: [%d] Inst: [%d]\n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis);
+        printf("[%d]: Index[%d] Pair: [%d] Inst: [%d] \n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis);
         tmp = tmp->next;
     }
     return ;
@@ -102,8 +102,8 @@ int main(int ac, char **av)
     
     check_elements(ac, av);
     insert_num(ac, av, &stack_a);
-    if (already_sorted(stack_a) == 1)
-        exit(1);
+    // if (already_sorted(stack_a) == 1)
+    //     exit(1);
     // printf("stack size %d\n", size_of_stack(stack_a));
     lis_list = extract_lis(stack_a);
     max_len = find_max_len(lis_list);

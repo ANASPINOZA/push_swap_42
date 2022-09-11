@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 19:50:23 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/11 18:29:29 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,12 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 		calculate_distance(*stack_a);
 		calculate_distance(*stack_b);
 		join_distance(*stack_a, *stack_b);
+		printf("------------ stack A ------------\n");
+		printlis(*stack_a);
+		printf("------------ stack B ------------\n");
+		printlis(*stack_b);
 		best = get_less_dis(*stack_b);
+		// printf("[flag of best : %d]\n", best->flag);
 		// while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 		// 	rotate(stack_a, "ra\n");
 		// while ((*stack_b)->data != best->data)
