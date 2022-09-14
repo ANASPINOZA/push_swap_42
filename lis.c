@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:23 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 21:03:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 13:49:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,22 +46,40 @@ t_nodes *extract_lis(t_nodes *stack)
 t_nodes *find_max_len(t_nodes *stack)
 {
     t_nodes *tmp;
-    t_nodes *tmp_max;
+    t_nodes *ret;
+    int     max;
 
     tmp = stack;
-    tmp_max = stack;
-
-    while (tmp->next != NULL)
+    ret = stack;
+    max = tmp->length;
+    while (tmp != NULL)
     {
-        if (tmp->length < tmp->next->length)
-            tmp_max = tmp->next;
+        max = tmp->length;
+        if (max > ret->length)
+            ret = tmp;
         tmp = tmp->next;
     }
-    return (tmp_max);
+    return (ret);
 }
+// t_nodes *find_max_len(t_nodes *stack)
+// {
+//     t_nodes *tmp;
+//     t_nodes *tmp_max;
+
+//     tmp = stack;
+//     tmp_max = stack;
+
+//     while (tmp->next != NULL)
+//     {
+//         if (tmp->length < tmp->next->length)
+//             tmp_max = tmp->next;
+//         tmp = tmp->next;
+//     }
+//     return (tmp_max);
+// }
 
 t_nodes *find_index(t_nodes *stack, int index)
-{
+{ 
     t_nodes *tmp;
 
     tmp = stack;

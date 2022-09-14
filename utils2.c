@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:34 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 22:08:05 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/13 16:35:58 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,3 +61,14 @@ int already_sorted(t_nodes *stack)
     return (1);
     // exit(1);
 }
+
+// void odd_or_even(int num)
+// {
+//     int res;
+    
+//     res = num % 2;
+//     if (res == 0)
+//         return (0);
+//     if (res != 0)
+//         return (1);
+// }

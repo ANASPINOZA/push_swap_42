@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/11 18:30:27 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 15:19:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void printlis(t_nodes *head)
         printf("[%d]: Index[%d] Pair: [%d] Inst: [%d] \n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis);
         tmp = tmp->next;
     }
-    return ;
 }
 
 void print_len_lis(t_nodes *head)
@@ -111,9 +110,15 @@ int main(int ac, char **av)
     sorted =  mark_elements(lis_list, max_len);
     // printlis(sorted);
     push_non_lis(&stack_a, &stack_b);
+    // printf("a: %d\n", size_of_stack(stack_a));
+    // printf("b: %d\n", size_of_stack(stack_b));
+    // printf("0--------------------\n");
+    // printlis(stack_a);
+    // printf("0--------------------\n");
+    // printlis(stack_b);
+    // printf("0--------------------\n");
     ft_sort(&stack_a, &stack_b);
     // printf("here\n");
-    // printlis(stack_a);
     
     // printf("stack a\n");
     // printlist(stack_a);

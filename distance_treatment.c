@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/11 19:14:53 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/13 19:27:55 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ void calculate_distance(t_nodes *stack)
     tmp = stack;
     while (tmp != NULL)
     {
-        if (tmp->elmts_indx >= (stack_size / 2))
+        if (tmp->elmts_indx > (stack_size / 2))
             tmp->dis = stack_size - tmp->elmts_indx;
-        else if (tmp->elmts_indx < (stack_size / 2))
+        else if (tmp->elmts_indx <= (stack_size / 2))
             tmp->dis = tmp->elmts_indx;
         tmp = tmp->next;
     }
@@ -85,12 +85,12 @@ void join_distance(t_nodes *stack_a, t_nodes *stack_b)
         {
             if (tmp_b->pair_idx == tmp_a->elmts_indx)
             {
-                if (tmp_b->elmts_indx >= b_mid && tmp_a->elmts_indx >= a_mid)
+                if (tmp_b->elmts_indx > b_mid && tmp_a->elmts_indx > a_mid)
                 {
                     tmp_b->flag = 7;
                     tmp_b->final_dis = ft_max(tmp_a->dis, tmp_b->dis);
                 }
-                else if ((tmp_b->elmts_indx < b_mid && tmp_a->elmts_indx < a_mid))
+                else if ((tmp_b->elmts_indx <= b_mid && tmp_a->elmts_indx <= a_mid))
                 {
                     tmp_b->flag = 9;
                     tmp_b->final_dis = ft_max(tmp_a->dis, tmp_b->dis);

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/11 12:43:10 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 13:07:41 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ t_nodes *get_min_element(t_nodes *stack);
 // void	pr_elemts(t_nodes **stack_a, t_nodes **stack_b); // remove
 // void	pr(t_nodes **stack, t_nodes	*node); // remove
 int already_sorted(t_nodes *stack);
+// void odd_or_even(int num);
 
 #endif
