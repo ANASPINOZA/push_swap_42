@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/14 15:19:27 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 16:41:25 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void printlis(t_nodes *head)
     while (tmp)
     {
         // printf("element : [%d] ,index : [%d], length : [%d], sub : [%d] , marked : %d \n", tmp->data, tmp->index, tmp->length, tmp->sub, tmp->mark_to_push);
-        printf("[%d]: Index[%d] Pair: [%d] Inst: [%d] \n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis);
+        printf("content: [%d]: Index[%d] Pair: [%d] Inst: [%d] dis: [%d] \n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis, tmp->dis);
         tmp = tmp->next;
     }
 }
@@ -112,7 +112,6 @@ int main(int ac, char **av)
     push_non_lis(&stack_a, &stack_b);
     // printf("a: %d\n", size_of_stack(stack_a));
     // printf("b: %d\n", size_of_stack(stack_b));
-    // printf("0--------------------\n");
     // printlis(stack_a);
     // printf("0--------------------\n");
     // printlis(stack_b);

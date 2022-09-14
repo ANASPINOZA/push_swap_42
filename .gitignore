@@ -3,4 +3,4 @@ checker_Mac
 push_swap
 .vscode
 output.txt
-.DS_Store/
+.DS_Store

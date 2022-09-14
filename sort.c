@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/14 15:44:57 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:21:39 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,11 @@ void	top_minimum_elm(t_nodes **stack_a)
 
 void above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
-	while ((*stack_b)->data != best->data && \
-		  (*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
-		  {
-			  rotate(stack_a, "rr\n");
-			  rotate(stack_b, "");
-		  }
+	while ((*stack_b)->data != best->data && (*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+	{
+		rotate(stack_a, "rr\n");
+		rotate(stack_b, "");
+	}
 	while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
 		rotate(stack_a, "ra\n");
 	while ((*stack_b)->data != best->data)
@@ -63,7 +62,6 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 
 	while (size_of_stack(*stack_b))
 	{
-    	// printf("-------------------------\n");
 		ft_pair(stack_a, stack_b);
 		calculate_distance(*stack_a);
 		calculate_distance(*stack_b);
@@ -73,6 +71,11 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 		// printf("------------ stack B ------------\n");
 		// printlis(*stack_b);
 		best = get_less_dis(*stack_b);
+		// printf("%d[%d] ----> [%d]", best->data, best->elmts_indx, best->pair_idx);
+    	// printf("-------------a------------\n");
+		// printlis(*stack_a);
+    	// printf("-------------b-----------\n");
+		// printlis(*stack_b);
 		// printf("The best element: %d\n", best->data);
 		if (best->flag == 9)
 		{
@@ -88,7 +91,6 @@ void ft_sort(t_nodes **stack_a, t_nodes **stack_b)
 			top_element(stack_a, find_elem(*stack_a, best->pair_idx), 'a');
 		}
 		pop_n_push(stack_b, stack_a, "pa\n");
-    	// printf("-------------------------\n");
 	}
 	top_minimum_elm(stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/10 22:06:27 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:22:48 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ void indexation_elems(t_nodes *stack)
     while(tmp != NULL)
     {
         tmp->elmts_indx = i;
+        tmp->pair_idx = -1;
+        tmp->flag = 0;
         tmp = tmp->next;
         i++;
     }

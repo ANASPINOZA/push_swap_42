@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:39:51 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/13 19:27:55 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/14 17:21:26 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void calculate_distance(t_nodes *stack)
     int     stack_size;
 
     stack_size = size_of_stack(stack);
-    indexation_elems(stack);
+    // indexation_elems(stack);
     tmp = stack;
     while (tmp != NULL)
     {
@@ -76,8 +76,8 @@ void join_distance(t_nodes *stack_a, t_nodes *stack_b)
     tmp_a = stack_a;
     a_mid = size_of_stack(stack_a) / 2;
     b_mid = size_of_stack(stack_b) / 2;
-    indexation_elems(stack_a);
-    indexation_elems(stack_b);
+    // indexation_elems(stack_a);
+    // indexation_elems(stack_b);
     while (tmp_b != NULL)
     {
         tmp_a = stack_a;
