@@ -6,69 +6,78 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:34 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/13 16:35:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/15 19:38:04 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str[i])
-        i++;
-    return (i);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int ft_strcmp(char *str1, char *str2)
+int	ft_strcmp(char *str1, char *str2)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str1[i] && str2[i] && (str1[i] == str2[i]))
-        i++;
-    return (str1[i] - str2[i]);
+	i = 0;
+	while (str1[i] && str2[i] && (str1[i] == str2[i]))
+		i++;
+	return (str1[i] - str2[i]);
 }
 
-void ft_error()
+void	ft_error(void)
 {
-    write(1, "Error\n", 6);
-    exit(1);
+	write(1, "Error\n", 6);
+	exit(1);
 }
 
-int already_sorted(t_nodes *stack)
+int	already_sorted(t_nodes *stack)
 {
-    t_nodes *tmp;
-    t_nodes *tmp_sec;
-    int     stack_size;
+	t_nodes	*tmp;
+	t_nodes	*tmp_sec;
+	int		stack_size;
 
-    tmp = stack;
-    tmp_sec = stack->next;
-    stack_size = size_of_stack(stack);
-    while (tmp_sec != NULL && stack_size > 0)
-    {
-        if (tmp->data < tmp_sec->data)
-        {
-            stack_size--;
-            tmp_sec = tmp_sec->next;  
-            tmp = tmp->next;     
-        }
-        else
-            return 0;
-    }
-    return (1);
-    // exit(1);
+	tmp = stack;
+	tmp_sec = stack->next;
+	stack_size = size_of_stack(stack);
+	while (tmp_sec != NULL && stack_size > 0)
+	{
+		if (tmp->data < tmp_sec->data)
+		{
+			stack_size--;
+			tmp_sec = tmp_sec->next;
+			tmp = tmp->next;
+		}
+		else
+			return (0);
+	}
+	return (1);
 }
 
-// void odd_or_even(int num)
-// {
-//     int res;
-    
-//     res = num % 2;
-//     if (res == 0)
-//         return (0);
-//     if (res != 0)
-//         return (1);
-// }
+char	*ft_strdup(char *s)
+{
+	int		i;
+	char	*t;
+
+	i = 0;
+	while (s[i])
+		i++;
+		t = (char *)malloc(i + 1);
+	if (!t)
+		return (NULL);
+		i = 0;
+	while (s[i])
+	{
+		t[i] = s[i];
+		i++;
+	}
+	t[i] = 0;
+	return (t);
+}
