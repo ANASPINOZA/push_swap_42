@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 18:44:14 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/16 12:28:41 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	push(t_nodes **head, int value, int index)
 	new_node->mark_to_push = 1;
 	new_node->dis = 0;
 	new_node->flag = 0;
-	// new_node->next = NULL;
 	new_node->next = *head;
 	*head = new_node;
 }
@@ -49,18 +48,6 @@ int	pop(t_nodes **head)
 	return (result);
 }
 
-void	printlis(t_nodes *head)
-{
-	t_nodes	*tmp;
-
-	tmp = head;
-	while (tmp)
-	{
-		printf("content: [%d]: Index[%d] Pair: [%d] Inst: [%d] dis: [%d] \n", tmp->data, tmp->elmts_indx , tmp->pair_idx, tmp->final_dis, tmp->dis);
-		tmp = tmp->next;
-	}
-}
-
 void	print_sorted(t_nodes *head)
 {
 	t_nodes	*tmp;
@@ -79,9 +66,12 @@ int	main(int ac, char **av)
 	t_nodes	*stack_b;
 	t_nodes	*lis_list;
 	t_nodes	*max_len;
+	char	**arg;
 
-	check_elements(ac, av);
-	insert_num(ac, av, &stack_a);
+	if (ac == 1)
+		exit(1);
+	arg = check_elements(ac, av);
+	insert_num(arg, &stack_a);
 	if (already_sorted(stack_a) == 1)
 		exit(1);
 	if (size_of_stack(stack_a) <= 5)

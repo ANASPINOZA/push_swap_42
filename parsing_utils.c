@@ -6,16 +6,16 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:43 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 19:36:14 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/16 11:58:51 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_elements(int ac, char **av)
+char	**check_elements(int ac, char **av)
 {
-	int	i;
-	char	*arg;
+	int		i;
+	char	**arg;
 
 	(void)ac;
 	i = 0;
@@ -26,6 +26,7 @@ void	check_elements(int ac, char **av)
 		is_integer(arg[i]);
 		i++;
 	}
+	return (arg);
 }
 
 // check if the element is a number

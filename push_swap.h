@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 19:37:00 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/16 19:30:25 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	pop_n_push(t_nodes **stack_sender, t_nodes \
 **stack_receiver, char *type);
 void	rotate(t_nodes **stack, char *type);
 void	reverse_rotate(t_nodes **stack, char *type);
-void	insert_num(int ac, char **av, t_nodes **stack);
+void	insert_num(char **av, t_nodes **stack);
 t_nodes	*extract_lis(t_nodes *stack);
 t_nodes	*find_max_len(t_nodes *stack);
 void	printlis(t_nodes *head);
@@ -52,7 +52,7 @@ void	ft_pair(t_nodes **stack_a, t_nodes **stack_b);
 void	indexation_elems(t_nodes *stack);
 int		ft_strlen(char *str);
 void	ft_error(void);
-void	check_elements(int ac, char **av);
+char	**check_elements(int ac, char **av);
 void	check_duplicate(t_nodes *stack);
 void	is_raw_number(char *num);
 void	is_integer(char *num);
@@ -66,12 +66,8 @@ void	print_instruction(char *str);
 t_nodes	*find_elem(t_nodes *stack, int index);
 void	ft_sort(t_nodes **stack_a, t_nodes **stack_b);
 void	top_element(t_nodes **stack, t_nodes *node, char type);
-// t_nodes *get_min_elm(t_nodes *stack);
 t_nodes	*get_min_element(t_nodes *stack);
-// void	pr_elemts(t_nodes **stack_a, t_nodes **stack_b); // remove
-// void	pr(t_nodes **stack, t_nodes	*node); // remove
 int		already_sorted(t_nodes *stack);
-// void odd_or_even(int num);
 void	five_elements(t_nodes **stack_a, t_nodes **stack_b);
 void	three_elments(t_nodes **stack);
 void	join_and_flag(t_nodes *stack_a, t_nodes *stack_b, int mid_a, int mid_b);
@@ -79,5 +75,13 @@ void	three_elments_aux(t_nodes **stack);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strjoin(char *s1, char *s2);
 char	**av_treatement(char **av);
+char	*ft_strdupi(char *s1, int l);
+char	*ft_strdup(char *s);
+char	**ft_split(char *s, char c);
+char	*get_next_line(int fd);
+int		ft_strcmp(char *s1, char *s2);
+void stack_a_treatement(t_nodes **stack_a, t_nodes **stack_b);
+void stack_b_treatement(t_nodes **stack_b,t_nodes **stack_a);
+void	double_treatment(t_nodes **stack_a, t_nodes **stack_b);
 
 #endif

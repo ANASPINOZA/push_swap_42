@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:19 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/14 23:56:17 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/16 12:04:53 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,21 @@ int	ft_atoi(char *str)
 	return (result * n);
 }
 
-void	insert_num(int ac, char **av, t_nodes **stack)
+void	insert_num(char **av, t_nodes **stack)
 {
 	int	i;
 	int	j;
 
-	i = ac - 1;
-	j = ac - 2;
-	while (i > 0)
+	i = 0;
+	while (av[i])
+		i++;
+	i--;
+	j = i - 1;
+	while (i >= 0)
 	{
 		push(stack, ft_atoi(av[i]), j);
-		i -= 1;
-		j -= 1;
+		i--;
+		j--;
 	}
 	check_duplicate(*stack);
 }
