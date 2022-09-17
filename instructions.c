@@ -6,11 +6,30 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:12 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 14:49:11 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/17 13:32:58 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	push(t_nodes **head, int value, int index)
+{
+	t_nodes	*new_node;
+
+	new_node = malloc(sizeof(t_nodes));
+	if (new_node == NULL)
+		return ;
+	new_node->data = value;
+	new_node->sub = -1;
+	new_node->length = 1;
+	new_node->pair_idx = -1;
+	new_node->index = index;
+	new_node->mark_to_push = 1;
+	new_node->dis = 0;
+	new_node->flag = 0;
+	new_node->next = *head;
+	*head = new_node;
+}
 
 void	swap(t_nodes **stack, char *type)
 {

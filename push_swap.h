@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:04 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 19:30:25 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/17 13:57:55 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,9 @@ char	*ft_strdup(char *s);
 char	**ft_split(char *s, char c);
 char	*get_next_line(int fd);
 int		ft_strcmp(char *s1, char *s2);
-void stack_a_treatement(t_nodes **stack_a, t_nodes **stack_b);
-void stack_b_treatement(t_nodes **stack_b,t_nodes **stack_a);
-void	double_treatment(t_nodes **stack_a, t_nodes **stack_b);
+int		stack_a_treatement(t_nodes **stack_a, t_nodes **stack_b, char *read);
+int		stack_b_treatement(t_nodes **stack_b, t_nodes **stack_a, char *read);
+int		double_treatment(t_nodes **stack_a, t_nodes **stack_b, char *read);
+void	checker_validation(t_nodes *stack_a);
 
 #endif

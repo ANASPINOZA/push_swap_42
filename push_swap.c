@@ -6,59 +6,11 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 12:28:41 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/17 16:20:19 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	push(t_nodes **head, int value, int index)
-{
-	t_nodes	*new_node;
-
-	new_node = malloc(sizeof(t_nodes));
-	if (new_node == NULL)
-		return ;
-	new_node->data = value;
-	new_node->sub = -1;
-	new_node->length = 1;
-	new_node->pair_idx = -1;
-	new_node->index = index;
-	new_node->mark_to_push = 1;
-	new_node->dis = 0;
-	new_node->flag = 0;
-	new_node->next = *head;
-	*head = new_node;
-}
-
-int	pop(t_nodes **head)
-{
-	t_nodes	*tmp;
-	int		result;
-
-	if (*head == NULL)
-	{
-		write(1, "stack is empty\n", 15);
-		return (-555555555);
-	}
-	result = (*head)->data;
-	tmp = *head;
-	*head = (*head)->next;
-	free(tmp);
-	return (result);
-}
-
-void	print_sorted(t_nodes *head)
-{
-	t_nodes	*tmp;
-
-	tmp = head;
-	while (tmp != NULL)
-	{
-		printf("sorted : [%d] \n", tmp->data);
-		tmp = tmp->next;
-	}
-}
 
 int	main(int ac, char **av)
 {

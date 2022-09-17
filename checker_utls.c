@@ -5,21 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/16 13:16:07 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 19:37:19 by aadnane          ###   ########.fr       */
+/*   Created: 2022/09/17 13:54:13 by aadnane           #+#    #+#             */
+/*   Updated: 2022/09/17 13:56:09 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_strcmp(char *s1, char *s2)
+void	checker_validation(t_nodes *stack_a)
 {
-	unsigned int	i;
-
-	if (!s1 || !s2)
-		return (-1);
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
+	if (already_sorted(stack_a) == 1)
+	{
+		write(1, "OK\n", 3);
+		exit(1);
+	}
+	else
+		write(1, "KO\n", 3);
 }
