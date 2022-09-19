@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/14 23:15:59 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 15:50:12 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,16 @@ void	top_minimum_elm(t_nodes **stack_a)
 
 void	above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
+	t_nodes *node_a;
+
+	node_a = find_elem(*stack_a, best->pair_idx);
 	while ((*stack_b)->data != best->data && \
-	(*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+	(*stack_a)->data != node_a->data)
 	{
 		rotate(stack_a, "rr\n");
 		rotate(stack_b, "");
 	}
-	while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+	while ((*stack_a)->data != node_a->data)
 		rotate(stack_a, "ra\n");
 	while ((*stack_b)->data != best->data)
 		rotate(stack_b, "rb\n");
@@ -45,13 +48,16 @@ void	above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 
 void	below_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
+	t_nodes *node_a;
+
+	node_a = find_elem(*stack_a, best->pair_idx);
 	while ((*stack_b)->data != best->data && \
-		(*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+		(*stack_a)->data != node_a->data)
 	{
 		reverse_rotate(stack_a, "rrr\n");
 		reverse_rotate(stack_b, "");
 	}
-	while ((*stack_a)->data != find_elem(*stack_a, best->pair_idx)->data)
+	while ((*stack_a)->data != node_a->data)
 		reverse_rotate(stack_a, "rra\n");
 	while ((*stack_b)->data != best->data)
 		reverse_rotate(stack_b, "rrb\n");

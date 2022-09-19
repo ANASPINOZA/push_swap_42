@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 11:29:38 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 12:14:14 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 14:38:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	*ft_strdupi(char *s1, int l)
 	i = 0;
 	str = malloc(sizeof(char) * (l + 1));
 	if (!str)
-		return (0);
+		return (NULL);
 	while (s1[i] && l > i)
 	{
 		str[i] = s1[i];
@@ -92,7 +92,7 @@ char	**ft_split(char *s, char c)
 	i = 0;
 	j = 0;
 	if (!s)
-		return (0);
+		return (NULL);
 	count = count_d(s, c);
 	str = (char **)malloc(sizeof(char *) * (count + 1));
 	if (!str)
@@ -103,7 +103,7 @@ char	**ft_split(char *s, char c)
 		i = l_i(s, c, i, &l);
 		str[j] = ft_strdupi(&s[i - l], l);
 		if (!str[j])
-			free_t(str);
+			return (free_t(str), NULL);
 		j++;
 	}
 	str[j] = 0;

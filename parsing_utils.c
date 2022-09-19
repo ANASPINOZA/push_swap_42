@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:43 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 11:58:51 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/18 21:58:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	**check_elements(int ac, char **av)
 	(void)ac;
 	i = 0;
 	arg = av_treatement(av);
+	if (!arg)
+		return (NULL);
 	while (arg[i])
 	{
 		is_raw_number(arg[i]);

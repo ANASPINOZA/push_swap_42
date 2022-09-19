@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:12 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/17 13:32:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/18 13:31:00 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void	rotate(t_nodes **stack, char *type)
 	t_nodes	*tmp;
 	t_nodes	*sec_tmp;
 
+	if (size_of_stack(*stack) < 2)
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	sec_tmp = *stack;
@@ -78,6 +80,8 @@ void	reverse_rotate(t_nodes **stack, char *type)
 	t_nodes	*tmp;
 	t_nodes	*sec_tmp;
 
+	if (size_of_stack(*stack) < 2)
+		return ;
 	tmp = *stack;
 	print_instruction(type);
 	while (tmp->next->next != NULL)

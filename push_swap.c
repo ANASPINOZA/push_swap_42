@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:40:58 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/17 16:20:19 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:22:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	main(int ac, char **av)
 	char	**arg;
 
 	if (ac == 1)
-		exit(1);
+		return (0);
 	arg = check_elements(ac, av);
+	if (!arg)
+		return (write(2, "Allocation error\n", 17), 0);
 	insert_num(arg, &stack_a);
 	if (already_sorted(stack_a) == 1)
 		exit(1);

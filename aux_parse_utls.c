@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 19:21:43 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/16 12:08:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 13:40:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	str = NULL;
 	i = 0;
 	j = 0;
-	if (!s1 && !s2)
+	if (!s1 || !s2)
 		return (NULL);
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
@@ -44,15 +44,27 @@ char	**av_treatement(char **av)
 {
 	int		i;
 	char	*str;
+	char	**splited;
 
 	i = 1;
 	if (av[1])
-	str = ft_strdup("");
+	{
+		str = ft_strdup("");
+		if (!str)
+			return (NULL);
+	}
 	while (av[i])
 	{
 		str = ft_strjoin(str, " ");
-		str = ft_strjoin(str, av[i]);
-		i++;
+		if (!str)
+			return (NULL);
+		str = ft_strjoin(str, av[i++]);
+		if (!str)
+			return (NULL);
 	}
-	return (ft_split(str, ' '));
+	splited = ft_split(str, ' ');
+	if (!splited)
+		return (NULL);
+	free(str);
+	return (splited);
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 12:41:34 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 19:38:04 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 14:35:27 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	already_sorted(t_nodes *stack)
 	tmp = stack;
 	tmp_sec = stack->next;
 	stack_size = size_of_stack(stack);
-	while (tmp_sec != NULL && stack_size > 0)
+	while (tmp && tmp_sec && stack_size > 0)
 	{
 		if (tmp->data < tmp_sec->data)
 		{
@@ -64,20 +64,20 @@ int	already_sorted(t_nodes *stack)
 char	*ft_strdup(char *s)
 {
 	int		i;
-	char	*t;
+	char	*ptr;
 
 	i = 0;
 	while (s[i])
 		i++;
-		t = (char *)malloc(i + 1);
-	if (!t)
+	ptr = (char *)malloc(i + 1);
+	if (!ptr)
 		return (NULL);
-		i = 0;
+	i = 0;
 	while (s[i])
 	{
-		t[i] = s[i];
+		ptr[i] = s[i];
 		i++;
 	}
-	t[i] = 0;
-	return (t);
+	ptr[i] = 0;
+	return (ptr);
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/15 12:43:38 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/15 16:14:49 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 16:42:18 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,11 @@ void	five_elements(t_nodes **stack_a, t_nodes **stack_b)
 {
 	t_nodes		*small;
 
+	if (size_of_stack(*stack_a) == 2)
+	{	
+		rotate(stack_a, "ra\n");
+		return ;
+	}
 	while (size_of_stack(*stack_a) > 3)
 	{
 		small = get_min_element(*stack_a);

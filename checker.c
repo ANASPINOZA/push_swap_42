@@ -6,38 +6,11 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 12:15:08 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/17 16:08:22 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 13:36:10 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	main(int ac, char **av)
-{
-	t_nodes	*stack_a;
-	t_nodes	*stack_b;
-	char	**arg;
-	char	*read;
-
-	if (ac == 1)
-		exit(1);
-	arg = check_elements(ac, av);
-	insert_num(arg, &stack_a);
-	read = get_next_line(0);
-	while (read)
-	{
-		if (!stack_a_treatement(&stack_a, &stack_b, read))
-		{
-			if (!stack_b_treatement(&stack_b, &stack_a, read))
-			{
-				if (!double_treatment(&stack_a, &stack_b, read))
-					ft_error();
-			}
-		}
-		read = get_next_line(0);
-	}
-	checker_validation(stack_a);
-}
 
 int	stack_a_treatement(t_nodes **stack_a, t_nodes **stack_b, char *read)
 {
@@ -109,7 +82,42 @@ int	double_treatment(t_nodes **stack_a, t_nodes **stack_b, char *read)
 		reverse_rotate(stack_b, "");
 		return (1);
 	}
-	else
-		ft_error();
 	return (0);
+}
+
+void	stack_treatment(t_nodes **stack_a, t_nodes **stack_b, char *read)
+{
+	if (!stack_a_treatement(stack_a, stack_b, read))
+	{
+		if (!stack_b_treatement(stack_b, stack_a, read))
+		{
+			if (!double_treatment(stack_a, stack_b, read))
+				ft_error();
+		}
+	}
+}
+
+int	main(int ac, char **av)
+{
+	t_nodes	*stack_a;
+	t_nodes	*stack_b;
+	char	**arg;
+	char	*read;
+
+	if (ac == 1)
+		return (0);
+	arg = check_elements(ac, av);
+	if (!arg)
+		return (write(2, "Allocation Error\n", 17), 0);
+	insert_num(arg, &stack_a);
+	read = get_next_line(0);
+	if (!read)
+		return (write(2, "Read Error\n", 11), 0);
+	while (read)
+	{
+		stack_treatment(&stack_a, &stack_b, read);
+		free(read);
+		read = get_next_line(0);
+	}
+	checker_validation(stack_a);
 }
