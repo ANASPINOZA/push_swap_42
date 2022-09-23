@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 12:15:08 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/19 13:36:10 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/23 11:48:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,13 @@ int	main(int ac, char **av)
 		return (write(2, "Allocation Error\n", 17), 0);
 	insert_num(arg, &stack_a);
 	read = get_next_line(0);
-	if (!read)
-		return (write(2, "Read Error\n", 11), 0);
 	while (read)
 	{
 		stack_treatment(&stack_a, &stack_b, read);
 		free(read);
 		read = get_next_line(0);
+		if (!read)
+			return (free(read), write(2, "Read Error\n", 11), 0);
 	}
 	checker_validation(stack_a);
 }

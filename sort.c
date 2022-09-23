@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 10:54:50 by aadnane           #+#    #+#             */
-/*   Updated: 2022/09/19 15:50:12 by aadnane          ###   ########.fr       */
+/*   Updated: 2022/09/19 18:56:02 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	top_minimum_elm(t_nodes **stack_a)
 
 void	above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
-	t_nodes *node_a;
+	t_nodes	*node_a;
 
 	node_a = find_elem(*stack_a, best->pair_idx);
 	while ((*stack_b)->data != best->data && \
@@ -48,7 +48,7 @@ void	above_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 
 void	below_mid_rotation(t_nodes **stack_a, t_nodes **stack_b, t_nodes *best)
 {
-	t_nodes *node_a;
+	t_nodes	*node_a;
 
 	node_a = find_elem(*stack_a, best->pair_idx);
 	while ((*stack_b)->data != best->data && \

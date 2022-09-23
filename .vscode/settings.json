@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "push_swap.h": "c",
+        "__string": "c",
+        "cstdio": "c",
+        "locale": "c"
+    }
+}
